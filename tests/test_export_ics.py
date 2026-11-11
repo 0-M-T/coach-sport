@@ -1,18 +1,19 @@
+import unittest
 import tempfile
 from pathlib import Path
 from src.export_ics import generer_ics, exporter_fichier
 
 
-def test_generer_ics():
-    ics = generer_ics(jours=14)
-    assert "BEGIN:VCALENDAR" in ics
-    assert "END:VCALENDAR" in ics
-    assert "VERSION:2.0" in ics
+class TestExportIcs(unittest.TestCase):
+    def test_generer_ics(self):
+        ics = generer_ics(jours=14)
+        self.assertIn("BEGIN:VCALENDAR", ics)
+        self.assertIn("END:VCALENDAR", ics)
+        self.assertIn("VERSION:2.0", ics)
 
-
-def test_exporter_fichier():
-    with tempfile.TemporaryDirectory() as tmpdir:
-        p = Path(tmpdir) / "test.ics"
-        res = exporter_fichier(p, jours=7)
-        assert res.exists()
-        assert "BEGIN:VCALENDAR" in res.read_text(encoding="utf-8")
+    def test_exporter_fichier(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            p = Path(tmpdir) / "test.ics"
+            res = exporter_fichier(p, jours=7)
+            self.assertTrue(res.exists())
+            self.assertIn("BEGIN:VCALENDAR", res.read_text(encoding="utf-8"))

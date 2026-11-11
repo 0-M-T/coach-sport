@@ -1,9 +1,11 @@
+import unittest
 from src.doctor import diagnostiquer
 
 
-def test_doctor_execution():
-    res = diagnostiquer()
-    assert "Python" in res
-    assert "Profil" in res
-    assert "Garmin" in res
-    assert "Strava" in res
+class TestDoctor(unittest.TestCase):
+    def test_doctor_execution(self):
+        res = diagnostiquer()
+        self.assertIn("Python", res)
+        self.assertIn("Profil", res)
+        self.assertIn("Garmin", res)
+        self.assertIn("Strava", res)
