@@ -1,0 +1,10 @@
+# Configuration des outils seulement : le projet tourne avec /opt/garmin-env (dépendances dans requirements.txt).
+[tool.ruff]
+line-length = 200
+target-version = "py313"
+extend-exclude = ["graphify-out"]
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "UP", "SIM"]
+# `l` désigne partout une ligne d'agenda Baïkal : convention du projet, gardée lisible.
+ignore = ["E741"]

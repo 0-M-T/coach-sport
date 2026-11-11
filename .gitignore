@@ -1,0 +1,35 @@
+# Environnement & Tokens
+*.env
+*.env.*
+!.env.example
+*.tokens.json
+tokens/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+ENV/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sessions Claude Code
+.claude/worktrees/
+graphify-out/
+!config/coach.env.example
+
+# Profils et données athlète
+profile.yaml
+profile.*.yaml
+profile/
+state/
+!templates/*.yaml

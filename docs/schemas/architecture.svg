@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360">
+  <style>
+    .bg { fill: #0B0F19; }
+    .box { fill: #131B2E; stroke: #1E293B; stroke-width: 2; rx: 12; }
+    .box-core { fill: #172554; stroke: #3B82F6; stroke-width: 2; rx: 12; }
+    .box-profile { fill: #1E1B4B; stroke: #8B5CF6; stroke-width: 2; rx: 12; }
+    .text-title { font-family: system-ui, sans-serif; font-size: 16px; font-weight: bold; fill: #F8FAFC; }
+    .text-body { font-family: system-ui, sans-serif; font-size: 13px; fill: #94A3B8; }
+    .arrow { stroke: #FF5A36; stroke-width: 2.5; stroke-dasharray: 4,4; fill: none; }
+    .arrow-solid { stroke: #3B82F6; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <rect width="800" height="360" class="bg"/>
+
+  <!-- Left: Inputs -->
+  <rect x="40" y="40" width="200" height="280" class="box"/>
+  <text x="60" y="75" class="text-title">Sources &amp; Capteurs</text>
+  <text x="60" y="110" class="text-body">• Garmin Connect (forme)</text>
+  <text x="60" y="140" class="text-body">• Strava (activités, gear)</text>
+  <text x="60" y="170" class="text-body">• Intervals.icu (multi-montres)</text>
+  <text x="60" y="200" class="text-body">• Météo locale (Open-Meteo)</text>
+  <text x="60" y="230" class="text-body">• Saisie manuelle / RPE</text>
+
+  <!-- Middle: Engine -->
+  <rect x="290" y="40" width="220" height="150" class="box-core"/>
+  <text x="310" y="75" class="text-title">Moteur Coach</text>
+  <text x="310" y="110" class="text-body">• Décision du jour</text>
+  <text x="310" y="135" class="text-body">• Charge &amp; Récupération</text>
+  <text x="310" y="160" class="text-body">• Adaptation du plan</text>
+
+  <!-- Bottom Middle: Profile Data -->
+  <rect x="290" y="210" width="220" height="110" class="box-profile"/>
+  <text x="310" y="240" class="text-title">Profil Athlète (COACH_HOME)</text>
+  <text x="310" y="270" class="text-body">• profile.yaml (VMA, FC, seuil)</text>
+  <text x="310" y="295" class="text-body">• plan.yaml (objectifs, blocs)</text>
+
+  <!-- Right: Outputs -->
+  <rect x="560" y="40" width="200" height="280" class="box"/>
+  <text x="580" y="75" class="text-title">Sorties &amp; Actions</text>
+  <text x="580" y="110" class="text-body">• Notifications ntfy</text>
+  <text x="580" y="140" class="text-body">• Agenda CalDAV / .ics</text>
+  <text x="580" y="170" class="text-body">• Séances montre (Garmin)</text>
+  <text x="580" y="200" class="text-body">• Home Assistant (capteurs)</text>
+  <text x="580" y="230" class="text-body">• Débriefs &amp; Humour Strava</text>
+
+  <!-- Arrows -->
+  <path d="M 240 115 L 290 115" class="arrow-solid"/>
+  <path d="M 400 210 L 400 190" class="arrow-solid"/>
+  <path d="M 510 115 L 560 115" class="arrow-solid"/>
+</svg>

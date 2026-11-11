@@ -1,0 +1,14 @@
+# Environnement /opt/garmin-env (Python 3.13) : seule dépendance directe garminconnect, le reste est figé pour reproduire l'install.
+# Réinstaller : python3 -m venv /opt/garmin-env && /opt/garmin-env/bin/pip install -r requirements.txt
+certifi==2026.10.23
+cffi==2.1.1
+charset-normalizer==3.5.2
+curl_cffi==0.17.0
+garminconnect==0.3.20
+idna==3.20
+pycparser==3.12
+requests==2.34.2
+ua-generator==2.1.8
+urllib3==2.8.0
+pyyaml>=6.0
+platformdirs>=4.0

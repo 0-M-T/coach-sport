@@ -1,0 +1,45 @@
+# Profil Athlète Coach Sportif
+version: 1
+
+identite:
+  prenom: "Alex"
+  nom: "Martin"
+  age: 28
+  taille: 175 # cm
+  poids: 68.0 # kg
+
+physiologie:
+  vma: 15.0 # km/h (laisser vide si inconnu)
+  fc_max: 192 # bpm
+  fc_repos: 55 # bpm
+  seuil_allure_s: 280 # secondes par km (ex: 4'40/km = 280s)
+  seuil_fc: 172 # bpm
+
+localisation:
+  nom: "Maison"
+  lat: 48.8566
+  lon: 2.3522
+
+club:
+  actif: false
+  nom: ""
+  stade_lat: 0.0
+  stade_lon: 0.0
+  ligne: ""
+
+chaussures:
+  seuil_bas: "Chaussures Polyvalentes"
+  ef_paire: "Chaussures Amorti Footing"
+  carbone: "Chaussures Compétition"
+  scott: "Chaussures Trail"
+  nnormal: "Chaussures Trail Technique"
+
+objectifs:
+  - nom: "Reprise progressive course à pied"
+    date: "2026-12-31"
+    priorite: "A"
+    details: "Reprise post-entorse / arrêt"
+
+preferences:
+  montre: "aucune" # garmin | coros | suunto | strava | aucune
+  fuseau: "Europe/Paris"

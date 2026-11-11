@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="coachGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A5C"/>
+      <stop offset="100%" stop-color="#FF5A36"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect width="128" height="128" rx="28" fill="#0F172A"/>
+  <!-- Stylized Dynamic Runner & Track Marks -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cadence pulse wave -->
+    <path d="M 24 96 L 40 96 L 48 76 L 60 108 L 72 44 L 84 84 L 92 64 L 104 64" stroke="#1E293B" stroke-width="4"/>
+    <!-- Head -->
+    <circle cx="78" cy="34" r="8" fill="url(#coachGrad)"/>
+    <!-- Dynamic Forward Running Torso & Legs -->
+    <path d="M 64 56 L 76 46 L 86 60 L 68 76 L 80 94" stroke="url(#coachGrad)" stroke-width="8"/>
+    <!-- Front Leg Stretch -->
+    <path d="M 68 76 L 50 88" stroke="url(#coachGrad)" stroke-width="8"/>
+    <!-- Forward Arm Drive -->
+    <path d="M 72 52 L 90 54" stroke="#F8FAFC" stroke-width="6"/>
+    <path d="M 72 52 L 56 50 L 46 60" stroke="#F8FAFC" stroke-width="6"/>
+  </g>
+</svg>

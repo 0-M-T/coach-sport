@@ -1,0 +1,40 @@
+# Plan de reprise progressive (post-blessure ou reprise d'activité)
+nom: "Reprise marche-course progressive"
+semaines:
+  semaine_1:
+    description: "Volume ultra-léger, test des sensations sans douleur"
+    seances:
+      - jour: 1 # mardi
+        kind: "ef"
+        titre: "Fractionné marche/course 20 min"
+        duree: 20
+        corps: "Alterner 1 min footing très lent / 1 min marche x 10. Aisance respiratoire stricte. Chaussures de running sur sol dur et plat."
+      - jour: 3 # jeudi
+        kind: "renfo"
+        titre: "Renforcement proprioceptif & mollets"
+        duree: 15
+        corps: "Équilibre unilatéral sur un pied yeux ouverts 3x30 s par jambe, montées sur pointes de pieds contrôlées 3x12, gainage planche 3x30 s."
+      - jour: 5 # samedi
+        kind: "ef"
+        titre: "Fractionné marche/course 24 min"
+        duree: 24
+        corps: "Alterner 2 min footing très lent / 1 min marche x 8. Si douleur cheville > 2/10 : arrêt immédiat."
+
+  semaine_2:
+    description: "Augmentation douce de la durée de course continue"
+    seances:
+      - jour: 1
+        kind: "ef"
+        titre: "Fractionné marche/course 25 min"
+        duree: 25
+        corps: "Alterner 3 min footing lent / 1 min marche x 6."
+      - jour: 3
+        kind: "renfo"
+        titre: "Renforcement fibulaires & gainage"
+        duree: 20
+        corps: "Équilibre unilatéral sol instable ou coussin 3x30 s, fentes arrière lentes 2x8 par jambe, mollets lents 3x12."
+      - jour: 5
+        kind: "ef"
+        titre: "Fractionné marche/course 28 min"
+        duree: 28
+        corps: "Alterner 4 min footing lent / 1 min marche x 5, puis 3 min marche retour au calme."
