@@ -1,0 +1,12 @@
+services:
+  coach:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: coach-sport
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+    environment:
+      - COACH_HOME=/data
+      - TZ=Europe/Paris

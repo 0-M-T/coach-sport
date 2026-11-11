@@ -57,6 +57,20 @@ def main():
     # doctor
     sub.add_parser("doctor", help="Vérifier la configuration et les connexions actives")
 
+    # init
+    sub.add_parser("init", help="Initialiser ou modifier votre profil athlète (questionnaire)")
+
+    # export-ics
+    p_ics = sub.add_parser("export-ics", help="Exporter les séances au format calendrier standard (.ics)")
+    p_ics.add_argument("--jours", type=int, default=28, help="Nombre de jours à exporter (défaut : 28)")
+    p_ics.add_argument("--sortie", default="entrainements.ics", help="Chemin du fichier de sortie")
+
+    # ressenti / RPE
+    p_rpe = sub.add_parser("ressenti", help="Noter le ressenti d'effort de la séance (RPE 1-10)")
+    p_rpe.add_argument("note", type=int, help="Note d'effort de 1 (très facile) à 10 (maximal)")
+    p_rpe.add_argument("--date", help="Date de la séance (AAAA-MM-JJ)")
+    p_rpe.add_argument("--commentaire", default="", help="Remarque ou sensation particulière")
+
     # sync
     sub.add_parser("sync", help="Synchroniser Garmin Connect vers Baïkal")
 
@@ -133,6 +147,17 @@ def _executer(args, parser):
     elif args.command == "doctor":
         from src.doctor import afficher_rapport
         sys.exit(afficher_rapport())
+    elif args.command == "init":
+        from src.init_cli import run_init
+        sys.exit(run_init())
+    elif args.command == "export-ics":
+        from src.export_ics import exporter_fichier
+        dest = exporter_fichier(args.sortie, jours=args.jours)
+        print(f"[OK] Fichier calendrier généré : {dest}")
+    elif args.command == "ressenti":
+        from src.ressenti import enregistrer_rpe
+        res = enregistrer_rpe(args.note, args.commentaire, args.date)
+        print(f"[OK] Ressenti RPE {res['note']}/10 enregistré.")
     elif args.command == "sync":
         from src.garmin_sync import sync_garmin_to_baikal
         sync_garmin_to_baikal()

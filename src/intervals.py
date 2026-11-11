@@ -47,6 +47,28 @@ def wellness(athlete_id: str, api_key: str, date_iso: str) -> dict[str, Any] | N
         return None
 
 
+def forme(athlete_id: str, api_key: str, date_iso: str) -> dict[str, Any] | None:
+    """Convertit le wellness Intervals.icu au format standard du noyau coach."""
+    w = wellness(athlete_id, api_key, date_iso)
+    if not w:
+        return None
+
+    sleep_secs = w.get("sleepSecs") or 0
+    sleep_hours = round(sleep_secs / 3600.0, 2)
+    hrv = w.get("hrv")  # rMSSD
+    resting_hr = w.get("restingHR")
+
+    return {
+        "source": "intervals",
+        "date": date_iso,
+        "sleep_hours": sleep_hours,
+        "hrv": hrv,
+        "resting_hr": resting_hr,
+        "fatigue_score": w.get("fatigue"),
+        "soreness": w.get("soreness"),
+    }
+
+
 def activites(athlete_id: str, api_key: str, debut_iso: str, fin_iso: str) -> list[dict[str, Any]]:
     """Récupère les activités d'une période."""
     url = f"{API_BASE}/athlete/{athlete_id}/activities?oldest={debut_iso}&newest={fin_iso}"
