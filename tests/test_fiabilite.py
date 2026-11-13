@@ -48,6 +48,14 @@ class Config(unittest.TestCase):
         self.assertNotIn("AUTRE", c)
         self.assertEqual(config.race_date(c), dt.date(2026, 12, 1))
 
+    def test_identifiants_baikal_lus_dans_le_fichier_partage(self):
+        env, baikal = self.d / "coach.env", self.d / "baikal-agent.env"
+        env.write_text("BAIKAL_PASS=perime\nNTFY_TOKEN=abc\n")
+        baikal.write_text("BAIKAL_USER=agent-jarvis\nBAIKAL_PASS=courant\n")
+        with mock.patch.object(config, "DEFAULT_ENV_PATHS", [env]), mock.patch.object(config, "BAIKAL_ENV", baikal):
+            c = config.load_config()
+        self.assertEqual((c["BAIKAL_PASS"], c["BAIKAL_USER"], c["NTFY_TOKEN"]), ("courant", "agent-jarvis", "abc"))
+
     def test_ecriture_atomique_garde_les_droits_et_cree_en_0600(self):
         f = self.d / "coach.env"
         f.write_text("A=1\n")
