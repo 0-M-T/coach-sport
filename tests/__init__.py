@@ -31,7 +31,6 @@ class _GarminInterdit:
 
 
 config.DEFAULT_ENV_PATHS = [BAC / "absent.env"]          # jamais le vrai coach.env
-config.BAIKAL_ENV = BAC / "absent-baikal.env"         # ni le vrai baikal-agent.env
 agent_coach.MARQUEURS = semaine.MARQUEURS = BAC         # anti-doublon des briefings
 baikal.baikal_cmd = _interdit("Agenda Baïkal")          # lister, créer, modifier, supprimer passent tous par là
 garmin.Garmin = _GarminInterdit
