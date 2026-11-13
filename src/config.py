@@ -14,9 +14,6 @@ DEFAULT_ENV_PATHS = [
     Path.home() / ".config/coach.env",
 ]
 
-# Identifiants agent-jarvis partagés avec baikal-event : un seul fichier à changer lors d'une rotation.
-BAIKAL_ENV = Path(os.environ.get("BAIKAL_ENV", "/root/.config/baikal-agent.env"))
-
 PREFIXES = ("NTFY_", "GARMIN_", "STRAVA_", "HA_", "BAIKAL_", "CALDAV_", "COACH_")
 HA_URL_DEFAUT = os.environ.get("HA_URL", "http://192.168.1.15:8123")
 BAIKAL_WEB = os.environ.get("BAIKAL_URL", "https://baikal.homelab.lan/")
@@ -34,14 +31,14 @@ def env_file() -> Path | None:
 
 def load_config() -> dict[str, str]:
     conf: dict[str, str] = {}
-    for path in (env_file(), BAIKAL_ENV):
-        if path and path.is_file():
-            with open(path, encoding="utf-8") as f:
-                for line in f:
-                    line = line.strip()
-                    if line and not line.startswith("#") and "=" in line:
-                        k, v = line.split("=", 1)
-                        conf[k.strip()] = v.strip().strip("'\"")
+    path = env_file()
+    if path:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    conf[k.strip()] = v.strip().strip("'\"")
     for key, val in os.environ.items():
         if key.startswith(PREFIXES):
             conf[key] = val
